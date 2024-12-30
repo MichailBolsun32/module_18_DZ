@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <title>{% block title %} {{ title }} {% endblock %}</title>
 </head>
 <body>
-    <h1>{{ heading }}</h1>
-    <h3>
-        <a href="#">{{ href_1_text }}</a>
-    </h3>
-    <h3>
-        <a href = "/platform/games">{{ href_2_text }}</a>
-    </h3>
-    <h3>
-        <a href = "/platform/cart">{{ href_3_text }}</a>
-    </h3>
+    <header>
+        {% block header %}
+        <h1>{{ heading }}</h1>
+         {% endblock %}
+    </header>
+   <main>
+       {% block content %}
+       <!-- Контент страницы -->
+       <h3>
+            <a href="#">{{ href_1_text }}</a>
+       </h3>
+       <h3>
+            <a href = "/platform/games">{{ href_2_text }}</a>
+       </h3>
+       <h3>
+            <a href = "/platform/cart">{{ href_3_text }}</a>
+       </h3>
+       {% endblock %}
+   </main>
+   <footer>
+       {% block footer %}
+       <p><!-- Вставь в меня текст --></p>
+       {% endblock %}
+   </footer>
 </body>
 </html>
